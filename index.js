@@ -21,6 +21,7 @@ app.get('/', function(request, response) {
 });
 
 app.get('/quote', function(request, response){
+  res.header("Access-Control-Allow-Origin", "https://s.codepen.io")
   response.send(JSON.stringify(quotes));
 })
 
