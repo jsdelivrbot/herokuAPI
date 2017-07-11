@@ -113,6 +113,4 @@ const quotes = [
     },
     ]
 
-    console.log(Object.keys(quotes).length);
-
-    // module.exports = quotes;
+    module.exports = quotes;
