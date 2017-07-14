@@ -35,15 +35,17 @@ app.get('/weather/:zip', function(req, res ){
 
   var getWeather = function(err, response, body){
       var data = JSON.parse(body);
-      res.send(JSON.stringify(data))
-      console.log(city, state);
+      data.city = city;
+      data.state = state;
+      res.send(JSON.stringify(data));
+      console.log('getWeather', city, state);
   }
 
   var getCity = function(err, response, body){
     var data = JSON.parse(body);
     city=data['location']['city'];
     state=data['location']['state'];
-console.log(city, state);
+console.log('getCity', city, state);
   request.get('http://api.wunderground.com/api/b8136ea6269c445c/forecast10day/q/'+state+'/'+city+'.json', getWeather)
   }
 
